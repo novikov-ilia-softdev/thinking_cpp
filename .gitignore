@@ -1,4 +1,5 @@
-*
-!*.cpp
-!*.h
-!Makefile
+*.out
+.cproject
+.project
+yourpets1
+yourpets2

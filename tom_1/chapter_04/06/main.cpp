@@ -1,6 +1,7 @@
 #include <iostream>
 
-struct Person{
+class Person{
+public:
 	int age;
 	void setAge( int age);
 	int getAge();

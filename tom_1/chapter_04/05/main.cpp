@@ -2,23 +2,23 @@
 
 struct Person{
 	int age;
-	void setAge( int age);
-	int getAge();
+	void setAge( Person* personPtr, int age);
+	int getAge( Person* personPtr);
 };
 
-void Person::setAge( int age)
+void Person::setAge( Person* personPtr, int age)
 {
-	this->age = age;
+	personPtr->age = age;
 }
 
-int Person::getAge()
+int Person::getAge( Person* personPtr)
 {
-	return this->age;
+	return personPtr->age;
 }
 
 int main()
 {
 	Person person;
-	person.setAge( 25);
-	std::cout << "person.getAge() == " << person.getAge() << std::endl;
+	person.setAge( &person, 25);
+	std::cout << "person.getAge( &person) == " << person.getAge( &person) << std::endl;
 }

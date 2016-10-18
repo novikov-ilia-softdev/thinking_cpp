@@ -1,22 +1,27 @@
-#include "stash.h"
+#include "stack.h"
 #include <iostream>
 
 int main()
 {
-	Stash stash;
-	stash.initialize( sizeof( double));
+	Stack stack;
+
 	for( int i = 0; i < 25; i++)
 	{
-		float f = static_cast<float>( i);
-		stash.add( &f);
+		stack.push( new float( i));
 	}
 
-	std::cout << "stash:" << std::endl;
-	for( int i = 0; i < 25; i++)
+	std::cout << "stack:" << std::endl;
+	for( int i = 0; i < 30; i++)
 	{
-		void* vPtr = stash.fetch( i);
+		void* vPtr = stack.pop();
+		if( !vPtr){
+			std::cout << "empty_stack ";
+			continue;
+		}
+
 		float* fPtr = static_cast<float*>( vPtr);
 		std::cout << *fPtr << " ";
+		delete fPtr;
 	}
 
 	std::cout << std::endl;

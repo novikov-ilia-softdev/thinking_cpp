@@ -31,7 +31,7 @@ int Stash::add( const void* element)
 void* Stash::fetch( int index)
 {
 	assert( index >= 0);
-	if( index >= next)
+	if( index >= storage.size())
 		return 0;
 
 	return &storage[index * size];

@@ -5,8 +5,6 @@
 
 struct Stash{
 	int size;
-	int quantity;
-	int next;
 	std::vector<char> storage;
 
 	void initialize( int sz);

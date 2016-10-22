@@ -1,4 +1,5 @@
 *.out
+*.o
 .cproject
 .project
 yourpets1

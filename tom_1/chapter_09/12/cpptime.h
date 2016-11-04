@@ -7,7 +7,6 @@
 class Time{
 public:
 	Time();
-	void mark();
 	const char* ascii();
 	int delta( Time* dt) const;
 	int daylightSavings();
@@ -28,6 +27,7 @@ private:
 	unsigned char _aflag;
 	void _updateLocal();
 	void _updateAscii();
+	void _mark();
 
 };
 

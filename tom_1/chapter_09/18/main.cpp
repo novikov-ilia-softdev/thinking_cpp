@@ -27,8 +27,8 @@ int main( )
 	record.one_value = 5;
 	record.two_value = 7;
 	record.three_value = 9;
-	std::cout << "record.getValueByIndex( 1): " << record.getValueByIndex( 0) << std::endl;
+	std::cout << "record.getValueByIndex( 1): " << record.getValueByIndex( 1) << std::endl;
 	std::cout << "record.getValueByIndex( 0): " << record.getValueByIndex( 0) << std::endl;
-	std::cout << "record.getValueByIndex( 2): " << record.getValueByIndex( 0) << std::endl;
-	std::cout << "record.getValueByIndex( 3): " << record.getValueByIndex( 0) << std::endl;
+	std::cout << "record.getValueByIndex( 2): " << record.getValueByIndex( 2) << std::endl;
+	std::cout << "record.getValueByIndex( 3): " << record.getValueByIndex( 3) << std::endl;
 }

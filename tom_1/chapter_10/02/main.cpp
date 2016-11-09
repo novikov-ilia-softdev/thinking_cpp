@@ -1,31 +1,5 @@
 #include <iostream>
 
-/*
-int fibo( bool reset = false)
-{
-	static int prev = 0;
-	static int prevPrev = 0;
-
-	if( reset)
-	{
-		prev = 0;
-		prevPrev = 0;
-	}
-
-	if( !prev && !prevPrev)
-	{
-		prevPrev++;
-		return 0;
-	}
-
-	int next = prev + prevPrev;
-	prevPrev = prev;
-	prev = next;
-
-	return next;
-}
-*/
-
 int fibo( bool reset = false)
 {
 	static int prev = 1;

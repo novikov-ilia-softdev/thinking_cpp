@@ -3,6 +3,8 @@
 
 class Monitor{
 public:
+	Monitor();
+	~Monitor();
 	void incident();
 	void decrement();
 	void print();

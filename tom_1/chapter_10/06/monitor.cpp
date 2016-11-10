@@ -3,6 +3,16 @@
 
 int Monitor::incidentCount_ = 0;
 
+Monitor::Monitor()
+{
+	std::cout << "Monitor::Monitor" << std::endl;
+}
+
+Monitor::~Monitor()
+{
+	std::cout << "~Monitor::Monitor" << std::endl;
+}
+
 void Monitor::incident()
 {
 	incidentCount_++;

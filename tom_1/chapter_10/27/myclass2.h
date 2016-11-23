@@ -6,15 +6,17 @@
 namespace MyNamespace2{
 
 class MyClass2{
+private:
+	static MyNamespace::MyClass obj_;
+
 public:
 	static void print()
 	{
-		objPtr_->print();
+		obj_.print();
 	}
-
-private:
-	static MyNamespace::MyClass* objPtr_;
 };
+
+MyNamespace::MyClass MyClass2::obj_( 5);
 
 };
 

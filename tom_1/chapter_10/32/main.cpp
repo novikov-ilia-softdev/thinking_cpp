@@ -6,7 +6,7 @@ extern util::Mirror mirror_1;
 util::Mirror mirror_5( &mirror_1);
 //util::Mirror mirror_5( 0);
 
-//g++ main.cpp mirror_1.cpp mirror.h
+//g++ main.cpp mirror_1.cpp mirror_2.cpp mirror_3.cpp mirror_4.cpp
 
 //g++ -c main.cpp
 //g++ -c mirror_1.cpp

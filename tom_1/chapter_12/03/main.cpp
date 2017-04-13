@@ -23,7 +23,7 @@ const Int Int::operator-(const Int& right) const
 
 void Int::print( std::ostream& stream)
 {
-	stream << i_ << std::endl;
+	stream << i_ << std::endl << std::endl;
 }
 
 int main()

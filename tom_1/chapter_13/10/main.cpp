@@ -3,7 +3,7 @@
 #include <new>
 
 int count = 0;
-int portion = 1000;
+int portion = 1000000000;
 
 void out_of_memory()
 {

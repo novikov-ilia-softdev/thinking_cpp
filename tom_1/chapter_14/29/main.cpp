@@ -27,9 +27,9 @@ private:
 unsigned char Framis::pool_[ psize * sizeof( Framis)];
 bool Framis::alloc_map_[ psize] = { false };
 
-void* Framis::operator new( size_t) throw( std::bad_alloc)
+void* Framis::operator new( size_t size) throw( std::bad_alloc)
 {
-	std::cout << "Framis::operator new" << std::endl;
+	std::cout << "Framis::operator new " << size << std::endl;
 	for( int i = 0; i < psize; i++)
 	{
 		if( !alloc_map_[ i])
@@ -68,17 +68,41 @@ public:
 
 	void* operator new( size_t) throw( std::bad_alloc);
 	void operator delete( void*);
+
+private:
+	static unsigned char pool_[];
+	static bool alloc_map_[];
 };
+
+unsigned char DerivedFramis::pool_[ psize * sizeof( DerivedFramis)];
+bool DerivedFramis::alloc_map_[ psize] = { false };
 
 void* DerivedFramis::operator new( size_t size) throw( std::bad_alloc)
 {
-	std::cout << "DerivedFramis::operator new" << std::endl;
-	return ::new char[ size];
+	std::cout << "DerivedFramis::operator new " << size << std::endl;
+	for( int i = 0; i < psize; i++)
+	{
+		if( !alloc_map_[ i])
+		{
+			//std::cout << "using block " << i << std::endl;
+			alloc_map_[ i] = true;
+			return pool_ + ( i * sizeof( DerivedFramis));
+		}
+	}
+
+	std::cout << "out of memory " << std::endl;
+	throw std::bad_alloc();
 }
-void DerivedFramis::operator delete( void* ptr)
+
+void DerivedFramis::operator delete( void* m)
 {
 	std::cout << "DerivedFramis::operator delete" << std::endl;
-	delete[] ptr;
+	if( !m) return;
+
+	unsigned long block = (unsigned long)m - (unsigned long)pool_;
+	block /= sizeof( DerivedFramis);
+	//std::cout << "freeing block " << block << std::endl;
+	alloc_map_[ block] = false;
 }
 
 int main()

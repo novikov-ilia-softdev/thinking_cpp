@@ -24,6 +24,9 @@ public:
 
 	T* pop()
 	{
+		if( container_.empty())
+			return 0;
+
 		T* t = container_.top();
 		container_.pop();
 		return t;

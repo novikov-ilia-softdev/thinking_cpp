@@ -4,7 +4,7 @@
 
 int main()
 {
-	const int size = 7;
+	const int size = 3;
 	std::cout << "create stack:" << std::endl;
 	Stack<SelfCounter> stack;
 

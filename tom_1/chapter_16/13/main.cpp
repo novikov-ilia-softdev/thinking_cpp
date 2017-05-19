@@ -5,7 +5,6 @@
 int main()
 {
 	typedef Stack<std::string> StringStack;
-	typedef StringStack::iterator StringStackIterator;
 
 	std::ifstream file( "main.cpp");
 	StringStack textLines;
@@ -14,19 +13,9 @@ int main()
 	while( getline( file, line))
 		textLines.push( new std::string( line));
 
-	int i = 0;
-	StringStackIterator it = textLines.begin();
-
-	StringStackIterator* it2 = 0;
-	while( it != textLines.end())
+	std::string* str = 0;
+	while( str = textLines.pop())
 	{
-		std::cout << it->c_str() << std::endl;
-		it++;
-		if( ++i == 10)
-			it2 = new StringStackIterator( it);
+		std::cout << str << std::endl;
 	}
-
-	std::cout << std::endl << "------ delete ------:" << std::endl;
-	std::cout << (*it2)->c_str() << std::endl;
-	delete it2;
 }
